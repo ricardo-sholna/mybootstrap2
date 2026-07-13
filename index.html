@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Importa o framework Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        /* Cores personalizadas */
+        :root {
+            --text-black-blueoil: #004953;
+            --bg-black-blueoil: #39bfd1;
+        }
+
+        body {
+            background-color: bisque;
+            background-attachment: fixed;
+            background-image: url("img/bg01.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #wrap header .logotipo {
+            height: 100px;
+            width: auto;
+        }
+
+        #wrap header small {
+            font-size: 73%;
+        }
+
+        .logged img,
+        .unlogged img {
+            height: 2rem;
+            width: 2rem;
+        }
+
+        @media screen and (min-width: 576px) {
+
+            .logged img,
+            .unlogged img {
+                height: 4rem;
+                width: 4rem;
+            }
+        }
+
+        .logged .dropdown-toggle,
+        .unlogged .dropdown-toggle {
+            color: var(--text-black-blueoil);
+            text-decoration: none;
+        }
+
+        .text-black-blueoil {
+            color: var(--text-black-blueoil);
+        }
+
+        .bg-black-blueoil {
+            background-color: var(--bg-black-blueoil);
+        }
+
+        .navbar-brand img {
+            height: 2.5rem;
+            width: auto;
+        }
+
+        .navbar-brand {
+            opacity: 0;
+            /* visibility: hidden; */
+            display: none;
+            transition: opacity .3s ease;
+        }
+
+        .navbar-brand.show {
+            opacity: 1;
+            /* visibility: visible; */
+            display: block;
+        }
+
+        #wrap header .dropdown-menu {
+            z-index: 10000;
+        }
+    </style>
+    <title>MyBootstrap</title>
+</head>
+
+<body data-bs-theme="light" class="vh-100" style="background-color: #39bfd1;">
+
+    <div id="wrap">
+        <header class="bg-black-blueoil">
+            <!-- Jumbotron -->
+            <div class="container p-2 text-white d-flex flex-column flex-sm-row">
+
+                <div class="d-flex align-items-center gap-2">
+                    <a href="index.html">
+                        <img class="rounded d-block logotipo" src="img/image.png" alt="Logotipo do MyBootstrap">
+                    </a>
+                    <h1 class="text-black-blueoil text-center">
+                        MyBootstrap
+                        <small class="d-block">Melhores Designs</small>
+                    </h1>
+                </div>
+
+                <!-- Se não tem logado -->
+                <div class="unlogged dropdown d-flex align-items-center gap-2 justify-content-center p-2 ms-sm-auto">
+                    <img class="rounded-circle" src="img/user.png" alt="Logue-se!">
+                    <a href="javascript: void(0)" class="dropdown-toggle" data-bs-toggle="dropdown">
+                        Logue-se!
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="javascript: void(0)" data-bs-toggle="modal"
+                                data-bs-target="#myModal">Fazer login</a></li>
+                        <li><a class="dropdown-item" href="javascript: void(0)">Cadastre-se</a></li>
+                    </ul>
+                </div>
+
+                <!-- Se o usuário está logado -->
+                <div class="logged dropdown d-none align-items-center gap-2 justify-content-center p-2 ms-sm-auto">
+                    <img class="rounded-circle" src="https://randomuser.me/api/portraits/men/3.jpg" alt="Joca da Silva">
+                    <a href="javascript: void(0)" class="dropdown-toggle" data-bs-toggle="dropdown">
+                        Joca da Silva
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="javascript: void(0)">Ver perfil</a></li>
+                        <li><a class="dropdown-item" href="javascript: void(0)">Sair / Logout</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </header>
+
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+            <div class="container">
+                <a class="navbar-brand p-0" href="index.html" data-bs-toggle="tooltip"
+                    title="MyBootstrap - Melhores Designs" data-bs-placement="bottom">
+                    <img class="rounded" src="img/image.png" alt="Logotipo de MyBootstrap">
+                </a>
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mynavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Ínicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#conteudo">Conteúdo</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown">Sobre</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#sobre_o_site">Sobre o Site</a></li>
+                                <li><a class="dropdown-item" href="#sobre_o_autor">Sobre o Autor</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#faca_contato">Faça Contato</a></li>
+                                <li><a class="dropdown-item" href="#privacidade">Políticas de Privacidade</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex mt-2 mt-sm-0 ms-0 ms-sm-2">
+                        <input class="form-control me-2" type="text" placeholder="Procurar...">
+                        <button class="btn btn-primary" type="button"><i class="bi bi-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <section class="col-md-8 col-lg-9 bg-body pt-3">
+                        <h2>Título</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque obcaecati reprehenderit ipsa
+                            placeat, vitae soluta accusantium dolores rem possimus ut aliquam consectetur ab nobis,
+                            dolore
+                            veniam eligendi iure, facilis voluptates.</p>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis asperiores laborum repellat
+                            iusto, soluta voluptatem distinctio, mollitia quo optio, nostrum impedit inventore quidem
+                            velit
+                            fugiat aperiam quos? Recusandae, ut quo.</p>
+                    </section>
+
+                    <aside class="col-md-4 col-lg-3 bg-body-secondary pt-3">
+                        <h3>Veja também</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita necessitatibus sint rem
+                            sed.
+                        </p>
+                    </aside>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            FOOTER
+        </footer>
+
+    </div>
+
+    <!-- Modal de login -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Fazer login</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+
+                    <div class="alert alert-danger alert-dismissible fade show">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        <strong>Oooops!</strong> Algo errado não está certo!
+                    </div>
+
+                    <form>
+                        <div class="form-floating mb-3 mt-3">
+                            <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
+                            <label for="email">Email</label>
+                        </div>
+
+                        <div class="form-floating mt-3 mb-3">
+                            <input type="password" class="form-control" id="pwd" placeholder="Enter password"
+                                name="pswd">
+                            <label for="pwd">Password</label>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button type="submit" class="btn btn-primary"><i class="bi bi-box-arrow-in-right"></i>
+                                Entrar</button>
+                            <span class="text-center"><a href="javascript:void(0)">Recuperar senha</a></span>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Importa o framework Bootstrap 5 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script>
+        // Habilita tooltips do Bootstrap
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+
+        const header = document.querySelector("#wrap > header");
+        const brand = document.querySelector(".navbar-brand");
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                brand.classList.toggle("show", !entry.isIntersecting);
+            },
+            {
+                threshold: 0
+            }
+        );
+
+        observer.observe(header);
+    </script>
+</body>
+
+</html>
