@@ -18,7 +18,7 @@
         body {
             background-color: bisque;
             background-attachment: fixed;
-            background-image: url("img/bg01.jpg");
+            background-image: url("img/fundo.png");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -83,13 +83,29 @@
         #wrap header .dropdown-menu {
             z-index: 10000;
         }
+
+        /* Links do rodapé usando variáveis do Bootstrap */
+        #wrap footer a {
+            font-size: 1.8rem;
+            color: var(--bs-light);
+        }
+
+        #wrap footer a:hover {
+            color: var(--bs-gray-300);
+        }
+
+        main>.container>.row>section,
+        main>.container>.row>aside {
+            display: flex;
+            flex-direction: column;
+        }
     </style>
     <title>MyBootstrap</title>
 </head>
 
-<body data-bs-theme="light" class="vh-100" style="background-color: #39bfd1;">
+<body data-bs-theme="light" class="d-flex flex-column min-vh-100">
 
-    <div id="wrap">
+    <div id="wrap" class="flex-grow-1 d-flex flex-column min-vh-100">
         <header class="bg-black-blueoil">
             <!-- Jumbotron -->
             <div class="container p-2 text-white d-flex flex-column flex-sm-row">
@@ -172,9 +188,9 @@
             </div>
         </nav>
 
-        <main>
-            <div class="container">
-                <div class="row">
+        <main class="flex-grow-1 d-flex">
+            <div class="container d-flex">
+                <div class="row flex-grow-1">
                     <section class="col-md-8 col-lg-9 bg-body pt-3">
                         <h2>Título</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque obcaecati reprehenderit ipsa
@@ -197,8 +213,12 @@
             </div>
         </main>
 
-        <footer>
-            FOOTER
+        <footer class="bg-dark text-light">
+            <div class="container d-flex justify-content-between align-items-center">
+                <a href="index.html"><i class="bi bi-house-fill"></i></a>
+                <div>&copy; 2026 Joca da Silva</div>
+                <a href="#top"><i class="bi bi-arrow-up-circle-fill"></i></a>
+            </div>
         </footer>
 
     </div>
