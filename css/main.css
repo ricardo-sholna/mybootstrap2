@@ -1,0 +1,96 @@
+/* Folhas de estilo do template (tema) das páginas */
+
+/* Cores personalizadas */
+:root {
+    --text-black-blueoil: #004953;
+    --bg-black-blueoil: #39bfd1;
+}
+
+body {
+    background-color: bisque;
+    background-attachment: fixed;
+    background-image: url("../img/bg01.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#wrap header .logotipo {
+    height: 100px;
+    width: auto;
+}
+
+#wrap header small {
+    font-size: 73%;
+}
+
+.logged img,
+.unlogged img {
+    height: 2rem;
+    width: 2rem;
+}
+
+@media screen and (min-width: 576px) {
+
+    .logged img,
+    .unlogged img {
+        height: 4rem;
+        width: 4rem;
+    }
+}
+
+.logged .dropdown-toggle,
+.unlogged .dropdown-toggle {
+    color: var(--text-black-blueoil);
+    text-decoration: none;
+}
+
+.text-black-blueoil {
+    color: var(--text-black-blueoil);
+}
+
+.bg-black-blueoil {
+    background-color: var(--bg-black-blueoil);
+}
+
+.navbar-brand img {
+    height: 2.5rem;
+    width: auto;
+}
+
+.navbar-brand {
+    opacity: 0;
+    /* visibility: hidden; */
+    display: none;
+    transition: opacity .3s ease;
+}
+
+.navbar-brand.show {
+    opacity: 1;
+    /* visibility: visible; */
+    display: block;
+}
+
+#wrap header .dropdown-menu {
+    z-index: 10000;
+}
+
+/* Links do rodapé usando variáveis do Bootstrap */
+#wrap footer a {
+    font-size: 1.8rem;
+    color: var(--bs-light);
+}
+
+#wrap footer a:hover {
+    color: var(--bs-gray-300);
+}
+
+main>.container>.row>section,
+main>.container>.row>aside {
+    display: flex;
+    flex-direction: column;
+}
+
+#contactForm {
+    max-width: 550px;
+}
